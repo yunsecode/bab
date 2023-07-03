@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div>
+    <div id="asd">
+        <div class="aaa">
+            Asd
+        </div>
+    </div>
+</div>
+
+<style lang="scss" scoped>
+#asd {
+    .aaa {
+        color: red;
+    }
+}
+</style>
