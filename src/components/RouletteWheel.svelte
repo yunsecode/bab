@@ -2,6 +2,7 @@
     import Arc from "./Arc.svelte"
     import FullArc from "./FullArc.svelte"
     import ArcLabel from "./ArcLabel.svelte"
+    import { onMount, afterUpdate } from 'svelte';
 
     export let options
     export let r
@@ -13,6 +14,13 @@
     let angle = sliceSize / 2
     let rolledOption
 
+    function updateValues() {
+        sliceCount = options.length
+        sliceSize = 360 / sliceCount
+        angle = sliceSize / 2
+        console.log("asd");
+    }
+    afterUpdate(updateValues);
     function randint(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min
     }
