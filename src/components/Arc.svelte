@@ -1,6 +1,8 @@
 <script>
     export let cx=0, cy=0, r, a0, a1
 
+    console.log("a0", a0);
+    console.log("a1", a1);
     let x0 = cx + Math.sin(a0 * 2 * Math.PI / 360.0) * r
     let y0 = cy + Math.cos(a0 * 2 * Math.PI / 360.0) * r
     let x1 = cx + Math.sin(a1 * 2 * Math.PI / 360.0) * r

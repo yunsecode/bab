@@ -18,7 +18,7 @@
         sliceCount = options.length
         sliceSize = 360 / sliceCount
         angle = sliceSize / 2
-        console.log("asd");
+        console.log("asd", sliceCount, sliceSize, angle);
     }
     afterUpdate(updateValues);
     function randint(min, max) {
@@ -48,21 +48,28 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<g transform={`rotate(${angle})`} on:click={() => click()} on:transitionend={transitionend}>
-    {#if options.length >= 1}
+{#if options.length == 0}
+    <g transform={`rotate(${0})`} on:click={() => click()} on:transitionend={transitionend}>
+        <FullArc r={r} />
+    </g>
+{:else if options.length == 1}
+    <g transform={`rotate(${0})`} on:click={() => click()} on:transitionend={transitionend}>
+        <FullArc r={r} />
+        {#each options as opt, i}
+            <ArcLabel r={r*2.0/3.0} a={360*(i+0.5)} text={opt} />
+        {/each}
+    </g>
+{:else}
+    <g transform={`rotate(${angle})`} on:click={() => click()} on:transitionend={transitionend}>
         {#each options as opt, i}
             <Arc r={r} a0={sliceSize*i} a1={sliceSize*(i+1)} />
         {/each}
-        {#each options as opt, i}
+        <!-- {#each options as opt, i}
             <ArcLabel r={r*2.0/3.0} a={sliceSize*(i+0.5)} text={opt} />
-        {/each}
-    {:else}
-        <FullArc r={r} />
-        {#each options as opt, i}
-            <ArcLabel r={r*2.0/3.0} a={sliceSize*(i+0.5)} text={opt} />
-        {/each}
-    {/if}
-</g>
+        {/each} -->
+    </g>
+
+{/if}
 
 <style>
   g {
