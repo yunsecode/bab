@@ -39,6 +39,9 @@
                         {#each options as opt, i}
                             <Arc r={r} a0={(360 / options.length)*i} a1={(360 / options.length)*(i+1)} />
                         {/each}
+                        {#each options as opt, i}
+                        <ArcLabel r={r*2.0/3.0} a={(360 / options.length)*(i+0.5)} text={opt} />
+                        {/each}
                     </g>
                 {/if}
             {/if}
@@ -68,7 +71,6 @@
         console.log(111);
         setTimeout(function() {
             asd++;
-        // 원하는 작업을 수행하는 코드
         }, 1);
     }
     function click() {
