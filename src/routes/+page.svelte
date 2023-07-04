@@ -59,9 +59,11 @@
     let asd = 0;
     let input_value = 0;
     let r = 150;
+    let angle = (360 / options.length) / 2;
 
     function onClickTopic() {
         options = [...options, input_value];
+        angle = (360 / options.length) / 2
         asd++;
         setTimeout(function() {
             asd++;
@@ -78,14 +80,15 @@
     function roundUp(x, z) {
       return Math.ceil(x / z) * z
     }
-    let angle = 0;
     let rolledOption = 0;
     function click() {
+        console.log("click", angle);
         let roll = randint(0, options.length-1)
         let rollPlace = randfloat(0.2*(360 / options.length), 0.8*(360 / options.length))
         let finalAngle = roll * (360 / options.length) + rollPlace
         let spins = randint(2, 3)
         angle = roundUp(angle, 360) + spins * 360 + finalAngle
+        console.log("new", angle);
         rolledOption = options[roll]
     }
     function transitionend() {
@@ -131,5 +134,8 @@ svg {
 polygon {
   fill: yellow;
 }
+g {
+    transition: 3s ease-out;
+  }
 </style>
 
