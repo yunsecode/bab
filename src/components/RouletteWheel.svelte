@@ -73,5 +73,6 @@
 <style>
   g {
     transition: 3s ease-out;
+    -webkit-transition: width 3s ease-out;
   }
 </style>
