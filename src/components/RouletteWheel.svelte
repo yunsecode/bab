@@ -72,7 +72,9 @@
 
 <style>
   g {
-    transition: 3s ease-out;
-    -webkit-transition: width 3s ease-out;
+    -webkit-transition: transform 200ms;
+    transition: all 200ms;
+    /* transition: 3s ease-out;
+    -webkit-transition: width 3s ease-out; */
   }
 </style>
