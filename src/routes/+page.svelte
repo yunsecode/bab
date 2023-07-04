@@ -11,6 +11,7 @@
     <div class="food-input">
         <input bind:value={input_value}>
         <button on:click={() => onClickTopic()}>추가</button>
+        <button on:click={() => reset()}>초기화</button>
     </div>
 
     <div>
@@ -94,6 +95,10 @@
     }
     function transitionend() {
         console.log("transitionend");
+    }
+    function reset() {
+        options = []
+        input_value = ""
     }
 </script>
 
