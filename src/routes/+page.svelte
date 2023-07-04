@@ -14,13 +14,8 @@
     </div>
 
     <div>
-        asd {asd} <br/>
-        oprions {options} <br/>
-        aaa{options.length}
         <svg height="400" width="400">
-            bbb{options.length}
             <g transform="translate(200,200)">
-              ccc{options.length}
             <!-- =========================================== -->
             {#if asd %2 == 0}
                 {#if options.length == 0}
@@ -35,7 +30,7 @@
                         {/each}
                     </g>
                 {:else}
-                    <g transform={`rotate(${(360 / options.length) / 2})`} on:click={() => click()} on:transitionend={transitionend}>
+                    <g transform={`rotate(${angle})`} on:click={() => click()} on:transitionend={transitionend}>
                         {#each options as opt, i}
                             <Arc r={r} a0={(360 / options.length)*i} a1={(360 / options.length)*(i+1)} />
                         {/each}
@@ -45,6 +40,9 @@
                     </g>
                 {/if}
             {/if}
+            <!-- 5개 최대 12자 -->
+            <!-- 7개 최대 8자 -->
+            <!-- 그 이상 4자 -->
             <!-- =========================================== -->
           </g>
           <polygon points="200 360 210 370 190 370"/>
@@ -62,23 +60,36 @@
     let input_value = 0;
     let r = 150;
 
-    function onRolled(opt) {
-        console.log(opt)
-    }
     function onClickTopic() {
         options = [...options, input_value];
         asd++;
-        console.log(111);
         setTimeout(function() {
             asd++;
         }, 1);
     }
-    function click() {
+    function randint(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    }
 
+    function randfloat(min, max) {
+      return Math.random() * (max - min) + min
+    }
+
+    function roundUp(x, z) {
+      return Math.ceil(x / z) * z
+    }
+    let angle = 0;
+    let rolledOption = 0;
+    function click() {
+        let roll = randint(0, options.length-1)
+        let rollPlace = randfloat(0.2*(360 / options.length), 0.8*(360 / options.length))
+        let finalAngle = roll * (360 / options.length) + rollPlace
+        let spins = randint(2, 3)
+        angle = roundUp(angle, 360) + spins * 360 + finalAngle
+        rolledOption = options[roll]
     }
     function transitionend() {
         console.log("transitionend");
-    //   onRolled(rolledOption)
     }
 </script>
 

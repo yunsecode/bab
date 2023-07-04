@@ -18,7 +18,6 @@
         sliceCount = options.length
         sliceSize = 360 / sliceCount
         angle = sliceSize / 2
-        console.log("asd", sliceCount, sliceSize, angle);
     }
     afterUpdate(updateValues);
     function randint(min, max) {
