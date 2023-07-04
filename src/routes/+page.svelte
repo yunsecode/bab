@@ -56,7 +56,7 @@
     import FullArc from "../components/FullArc.svelte";
     import ArcLabel from "../components/ArcLabel.svelte";
     import Arc from "../components/Arc.svelte";
-    let options = [];
+    let options = ["aaa", "bbb"];
     let asd = 0;
     let input_value = "";
     let r = 150;
