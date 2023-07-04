@@ -57,7 +57,7 @@
     import Arc from "../components/Arc.svelte";
     let options = [];
     let asd = 0;
-    let input_value = 0;
+    let input_value = "";
     let r = 150;
     let angle = (360 / options.length) / 2;
 
@@ -68,6 +68,7 @@
         setTimeout(function() {
             asd++;
         }, 1);
+        input_value = ""
     }
     function randint(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min
