@@ -31,7 +31,7 @@
                         {/each}
                     </g>
                 {:else}
-                    <g transform={`rotate(${angle})`} on:click={() => click()} on:transitionend={transitionend}>
+                    <g id="hello" style="transform: rotate({angle}deg);" on:click={() => click()} on:transitionend={transitionend}>
                         {#each options as opt, i}
                             <Arc r={r} a0={(360 / options.length)*i} a1={(360 / options.length)*(i+1)} />
                         {/each}
@@ -140,8 +140,20 @@ svg {
 polygon {
   fill: yellow;
 }
-g {
-    transition: 3s ease-out;
+#hello {
+    // transform: rotate(70deg)
+    transition: transform 3s ease-out;
+    // animation-name: fixed;
   }
+
+//   @keyframes fixed {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+
+//   100% {
+//     transform: rotate(80deg);
+//   }
+// }
 </style>
 
