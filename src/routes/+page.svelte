@@ -82,7 +82,7 @@
     function roundUp(x, z) {
       return Math.ceil(x / z) * z
     }
-    let rolledOption = 0;
+    let rolledOption = "";
     function click() {
         console.log("click", angle);
         let roll = randint(0, options.length-1)
@@ -95,6 +95,7 @@
     }
     function transitionend() {
         console.log("transitionend");
+        console.log(rolledOption);
     }
     function reset() {
         options = []
