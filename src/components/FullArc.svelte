@@ -15,8 +15,8 @@
 
 <style>
     path {
-      fill: green;
-      stroke-width: 2;
-      stroke: #fff;
+        fill: green;
+        stroke-width: 2;
+        stroke: #fff;
     }
 </style>

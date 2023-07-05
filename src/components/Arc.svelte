@@ -9,19 +9,19 @@
     let arcSweep = (a1 - a0) <= 180 ? 0 : 1
 
     let d = `
-      M ${cx} ${cy}
-      L ${x0} ${y0}
-      A ${r} ${r} 0 ${arcSweep} 0 ${x1} ${y1}
-      Z
+        M ${cx} ${cy}
+        L ${x0} ${y0}
+        A ${r} ${r} 0 ${arcSweep} 0 ${x1} ${y1}
+        Z
     `
 </script>
 
-<path {d}/>
+<path {d} />
 
 <style>
     path {
-      fill: green;
-      stroke-width: 2;
-      stroke: #fff;
+        fill: green;
+        stroke-width: 2;
+        stroke: #fff;
     }
 </style>

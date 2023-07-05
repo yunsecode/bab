@@ -1,5 +1,6 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div id="bab">
+    <!-- phrase -->
     <h1 class="phrase">
         <div class="phrase-text quote">
             "인생은 낮저밤이"
@@ -8,17 +9,22 @@
             낮에는 저거 먹고 밤에는 이거 먹고
         </div>
     </h1>
+
+    <!-- input -->
     <div class="food-input">
         <input bind:value={input_value}>
         <button on:click={() => onClickTopic()}>추가</button>
         <button on:click={() => reset()}>초기화</button>
     </div>
 
+    <!-- roulette -->
     <div>
         <svg height="400" width="400">
+            <!-- roulette in center -->
             <g transform="translate(200,200)">
-            <!-- =========================================== -->
-            {#if asd %2 == 0}
+
+            <!-- circle -->
+            {#if asd % 2 == 0}
                 {#if options.length == 0}
                     <g transform={`rotate(${0})`} on:click={() => click()} on:transitionend={transitionend}>
                         <FullArc r={r} />
@@ -36,7 +42,7 @@
                             <Arc r={r} a0={(360 / options.length)*i} a1={(360 / options.length)*(i+1)} />
                         {/each}
                         {#each options as opt, i}
-                        <ArcLabel r={r*2.0/3.0} a={(360 / options.length)*(i+0.5)} text={opt} />
+                            <ArcLabel r={r*2.0/3.0} a={(360 / options.length)*(i+0.5)} text={opt} />
                         {/each}
                     </g>
                 {/if}
@@ -46,17 +52,19 @@
             <!-- 그 이상 4자 -->
             <!-- =========================================== -->
           </g>
+
+          <!-- triangle -->
           <polygon points="200 360 210 370 190 370"/>
         </svg>
-      </div>
+    </div>
 </div>
 
 <script>
-    import RouletteWheel from "../components/RouletteWheel.svelte"
     import FullArc from "../components/FullArc.svelte";
     import ArcLabel from "../components/ArcLabel.svelte";
     import Arc from "../components/Arc.svelte";
-    let options = ["aaa", "bbb"];
+
+    let options = [];
     let asd = 0;
     let input_value = "";
     let r = 150;
@@ -141,20 +149,10 @@ svg {
 polygon {
   fill: yellow;
 }
+
 #hello {
-    // transform: rotate(70deg)
     transition: transform 3s ease-out;
-    // animation-name: fixed;
-  }
+}
 
-//   @keyframes fixed {
-//   0% {
-//     transform: rotate(0deg);
-//   }
-
-//   100% {
-//     transform: rotate(80deg);
-//   }
-// }
 </style>
 
