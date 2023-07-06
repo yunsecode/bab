@@ -1,5 +1,9 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div id="bab">
+    <div>
+        ???
+        {aaaa}
+    </div>
     <!-- phrase -->
     <h1 class="phrase">
         <div class="phrase-text quote">
@@ -79,6 +83,7 @@
         elements = []
         input_value = ""
     }
+    let aaaa = 0;
     if (browser) {
         let inputElement = document.getElementById('myInput');
 
@@ -88,6 +93,8 @@
             let currentContent = metaTag.getAttribute('content');
             let newContent = currentContent.replace(/initial-scale=\d+(\.\d+)?/, 'initial-scale=1'); // 값을 1로 변경
             metaTag.setAttribute('content', newContent);
+            console.log(document.querySelector('meta[name="viewport"]'));
+            aaaa++;
         });
     }
 
