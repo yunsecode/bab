@@ -12,7 +12,7 @@
 
     <!-- input -->
     <div class="food-input">
-        <input bind:value={input_value}>
+        <input id="myInput" bind:value={input_value}>
         <button on:click={() => clickAddElement()}>추가</button>
         <button on:click={() => clickResetElement()}>초기화</button>
     </div>
@@ -58,6 +58,7 @@
     import FullArc from "../components/FullArc.svelte";
     import ArcLabel from "../components/ArcLabel.svelte";
     import Arc from "../components/Arc.svelte";
+    import { browser } from "$app/environment";
 
     // ============================== input ==============================
     let elements = [];
@@ -77,6 +78,17 @@
     function clickResetElement() {
         elements = []
         input_value = ""
+    }
+    if (browser) {
+        let inputElement = document.getElementById('myInput');
+
+        inputElement.addEventListener('blur', function() {
+            console.log('Hello');
+            let metaTag = document.querySelector('meta[name="viewport"]');
+            let currentContent = metaTag.getAttribute('content');
+            let newContent = currentContent.replace(/initial-scale=\d+(\.\d+)?/, 'initial-scale=1'); // 값을 1로 변경
+            metaTag.setAttribute('content', newContent);
+        });
     }
 
     // ============================== sphere element ==============================
