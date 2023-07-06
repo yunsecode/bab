@@ -1,9 +1,5 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div id="bab">
-    <div>
-        ???
-        {aaaa}
-    </div>
     <!-- phrase -->
     <h1 class="phrase">
         <div class="phrase-text quote">
@@ -16,7 +12,7 @@
 
     <!-- input -->
     <div class="food-input">
-        <input id="myInput" bind:value={input_value}>
+        <input bind:value={input_value}>
         <button on:click={() => clickAddElement()}>추가</button>
         <button on:click={() => clickResetElement()}>초기화</button>
     </div>
@@ -62,7 +58,6 @@
     import FullArc from "../components/FullArc.svelte";
     import ArcLabel from "../components/ArcLabel.svelte";
     import Arc from "../components/Arc.svelte";
-    import { browser } from "$app/environment";
 
     // ============================== input ==============================
     let elements = [];
@@ -82,20 +77,6 @@
     function clickResetElement() {
         elements = []
         input_value = ""
-    }
-    let aaaa = 0;
-    if (browser) {
-        let inputElement = document.getElementById('myInput');
-
-        inputElement.addEventListener('blur', function() {
-            console.log('Hello');
-            let metaTag = document.querySelector('meta[name="viewport"]');
-            let currentContent = metaTag.getAttribute('content');
-            let newContent = currentContent.replace(/initial-scale=\d+(\.\d+)?/, 'initial-scale=1'); // 값을 1로 변경
-            metaTag.setAttribute('content', newContent);
-            console.log(document.querySelector('meta[name="viewport"]'));
-            aaaa++;
-        });
     }
 
     // ============================== sphere element ==============================
@@ -158,7 +139,6 @@
             color: white;
 
             border-style: none;
-            // scale: 0;
             &:focus {
                 --ring-color: rgb(59 130 246);
                 border-color: rgb(59 130 246);
