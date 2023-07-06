@@ -139,8 +139,7 @@
             color: white;
 
             border-style: none;
-            zoom: 1;
-
+            // scale: 0;
             &:focus {
                 --ring-color: rgb(59 130 246);
                 border-color: rgb(59 130 246);
