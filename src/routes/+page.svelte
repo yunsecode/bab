@@ -188,13 +188,13 @@
 }
 :global(body) {
     background-color: rgb(17 24 39);
-  color: #fff;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+    user-select: none;
 }
 
 svg {
